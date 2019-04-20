@@ -12,7 +12,7 @@ allprojects {
 		}
 	}
  ```
-
+ 
 Step 2. **Add the dependency**
 ```java
 dependencies {
@@ -22,7 +22,7 @@ dependencies {
 # Library Provided Function List
   1. Date and Time Conversion
   2. Integer to Currency Convert for any Country
-
+  
 ## 1. Date and Time Conversion
 **Get Current Date**
 
@@ -38,7 +38,7 @@ String date = DateTimeFormat.getCurrentDateInddMMMyyyy(); // date = "12 April 20
 
 **Get Date in Millisecond**
 ```java
-// Current date in millisecond
+// Current date in millisecond 
 long millisecond = DateTimeFormat.DateToMillisecond(); // millisecond = 1555698600000
 
 // Date object as source
@@ -77,7 +77,7 @@ boolean state = DateTimeFormat.isAterDate("12-04-2019","dd-MM-yyyy"); // with cu
 boolean state = DateTimeFormat.isAterDate(date,comparDate,datePattern); // with your date
 boolean state = DateTimeFormat.isAterDate("12-04-2019","12-04-2019","dd-MM-yyyy"); // with your date
 ```
-
+  
 **isBefore**
 
 ```isBefore``` Tell whether or not a given date is before current date
@@ -113,12 +113,12 @@ String outputDate = DateTimeFormat.changeDatePattern("10-04-2019","dd-MM-yyyy","
 ## 2. Integer to Currency Convert for any Country
 **Convert Integer to Currency**
 ```java
-// Amount double as source
+// Amount double as source 
 String currency = CurrencyUnit.currencyConvert(double amount,Local country);
 String currency = CurrencyUnit.currencyConvert(15000,Local.US); //currency = $ 15,000
 String currency = CurrencyUnit.currencyConvert(15000,Local.US); //currency = $ 15,000
 
-//
+// 
 String currency = CurrencyUnit.currencyConvert(25480); //currency = ₹25,480
 
 ```
