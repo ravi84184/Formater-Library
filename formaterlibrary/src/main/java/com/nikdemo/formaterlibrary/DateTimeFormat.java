@@ -61,6 +61,11 @@ public class DateTimeFormat {
         return new SimpleDateFormat(outputDatePattern).format(date);
     }
 
+    /**
+     *
+     * @param outputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentDate(String outputDatePattern){
         if (outputDatePattern.equals("")){
@@ -71,23 +76,39 @@ public class DateTimeFormat {
     }
 
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentDatedInddMMyyyy(){
         Date date = Calendar.getInstance().getTime();
         return new SimpleDateFormat("dd/MM/yyyy").format(date);
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentDateInddMMMyyyy(){
         Date date = Calendar.getInstance().getTime();
         return new SimpleDateFormat("dd MMM yyyy").format(date);
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static Date getCurrentDate(){
         return Calendar.getInstance().getTime();
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static long DateToMillisecond(){
         //creating Calendar instance
@@ -96,11 +117,22 @@ public class DateTimeFormat {
         return calendar.getTimeInMillis();
     }
 
+    /**
+     *
+     * @param date
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static long DateToMillisecond(Date date){
         return date.getTime();
     }
 
+    /**
+     *
+     * @param date
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static long DateToMillisecond(String date,String inputDatePattern){
         if (inputDatePattern.equals("")){
@@ -118,7 +150,12 @@ public class DateTimeFormat {
     }
 
 
-
+    /**
+     *
+     * @param date
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getTimeAgo(String date,String inputDatePattern){
         if (inputDatePattern.equals("")){
@@ -152,6 +189,12 @@ public class DateTimeFormat {
         return "";
     }
 
+    /**
+     *
+     * @param startdate
+     * @param enddate
+     * @return
+     */
     public static List<Date> getDaysBetweenDates(Date startdate, Date enddate)
     {
         List<Date> dates = new ArrayList<Date>();
@@ -168,12 +211,24 @@ public class DateTimeFormat {
     }
 
 
-
+    /**
+     *
+     * @param date1
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isTodayDate(String date1,String inputDatePattern){
         return isTodayDate(date1,getCurrentDate(inputDatePattern),inputDatePattern);
     }
 
+    /**
+     *
+     * @param date1
+     * @param date2
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isTodayDate(String date1,String date2,String inputDatePattern){
         if (inputDatePattern.equals("")){
@@ -195,17 +250,36 @@ public class DateTimeFormat {
             throw new IllegalArgumentException(e);
         }
     }
+
+    /**
+     *
+     * @param date
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isTodayDate(Date date){
         String pattern = "yyyy-MM-dd";
         return isTodayDate(changeDatePattern(date,pattern),getCurrentDate(pattern),pattern);
     }
 
+    /**
+     *
+     * @param date1
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isAterDate(String date1,String inputDatePattern){
         return isAterDate(date1,getCurrentDate(inputDatePattern),inputDatePattern);
     }
 
+    /**
+     *
+     * @param date1
+     * @param date2
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isAterDate(String date1,String date2,String inputDatePattern){
         if (inputDatePattern.equals("")){
@@ -228,28 +302,58 @@ public class DateTimeFormat {
         }
     }
 
+    /**
+     *
+     * @param date
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isAterDate(Date date){
         String pattern = "yyyy-MM-dd";
         return isAterDate(changeDatePattern(date,pattern),getCurrentDate(pattern),pattern);
     }
 
+    /**
+     *
+     * @param date1
+     * @param date2
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isAterDate(Date date1,Date date2){
         String pattern = "yyyy-MM-dd";
         return isAterDate(changeDatePattern(date1,pattern),changeDatePattern(date2,pattern),pattern);
     }
+
+    /**
+     *
+     * @param date1
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isBeforeDate(String date1,String inputDatePattern){
         return isBeforeDate(date1,getCurrentDate(inputDatePattern),inputDatePattern);
     }
 
+    /**
+     *
+     * @param date
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isBeforeDate(Date date){
         String inputDatePattern = "yyyy-MM-dd";
         return isBeforeDate(changeDatePattern(date,inputDatePattern),getCurrentDate(inputDatePattern),inputDatePattern);
     }
 
+    /**
+     *
+     * @param date1
+     * @param date2
+     * @param inputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static boolean isBeforeDate(String date1,String date2,String inputDatePattern){
         if (inputDatePattern.equals("")){
@@ -289,9 +393,9 @@ public class DateTimeFormat {
      */
     /**
      *
-     * @param time (time in string format like 22-04-2019)
-     * @param inputDatePattern (input patter like white pattern of date you insert in method like dd-MM-yyyy)
-     * @param outputDatePattern (which pattern you want to return like dd MMM yyyy)
+     * @param time
+     * @param inputDatePattern
+     * @param outputDatePattern
      * @return
      */
     @SuppressLint("SimpleDateFormat")
@@ -317,29 +421,51 @@ public class DateTimeFormat {
         return returnDate;
     }
 
+    /**
+     *
+     * @param time
+     * @param outputDatePattern
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String changeTimePattern(Date time, String outputDatePattern){
         return new SimpleDateFormat(outputDatePattern).format(time);
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentTimeInHHMM(){
         Date date = Calendar.getInstance().getTime();
         return new SimpleDateFormat("HH:mm").format(date);
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentTimeInHHMMss(){
         Date date = Calendar.getInstance().getTime();
         return new SimpleDateFormat("HH:mm:ss").format(date);
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentTimeInhhMMA(){
         Date date = Calendar.getInstance().getTime();
         return new SimpleDateFormat("hh:mm a").format(date);
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentTimeInhhMMssA(){
         Date date = Calendar.getInstance().getTime();
