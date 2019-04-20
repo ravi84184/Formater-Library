@@ -4,7 +4,7 @@
 The DateTimeFormat library is available from JitPack.
 
 Step 1. **Add it in your root build.gradle at the end of repositories:**
-```
+```java
 allprojects {
 		repositories {
 			...
@@ -14,15 +14,19 @@ allprojects {
  ```
  
 Step 2. **Add the dependency**
-```
+```java
 dependencies {
 	        implementation 'com.github.ravi84184:Formater-Library:Tag'
 	}
   ```
-
+# Library Provided Function List
+  1. Date and Time Conversion
+  2. Integer to Currency Convert for any Country
+  
+## 1. Date and Time Conversion
 **Get Current Date**
 
-```
+```java
 // return Date value
 Date state = DateTimeFormat.getCurrentDate();
 
@@ -33,7 +37,7 @@ String date = DateTimeFormat.getCurrentDateInddMMMyyyy(); // date = "12 April 20
 ```
 
 **Get Date in Millisecond**
-```
+```java
 // Current date in millisecond 
 long millisecond = DateTimeFormat.DateToMillisecond(); // millisecond = 1555698600000
 
@@ -49,7 +53,7 @@ long millisecond = DateTimeFormat.DateToMillisecond("05-02-2010","dd-MM-yyyy"); 
 
 ```isToday``` Tell whether or not a given date is today date
 
-```
+```java
 // Date object as source
 boolean state = DateTimeFormat.isTodayDate(new Date());
 
@@ -63,7 +67,7 @@ boolean state = DateTimeFormat.isTodayDate("12 April,2019","dd MMM,yyyy");
 
 ```isAfter``` Tell whether or not a given date is after current date
 
-```
+```java
 // Date object as source
 boolean state = DateTimeFormat.isAterDate(new Date());
 boolean state = DateTimeFormat.isAterDate(new Date(),new Date());
@@ -78,7 +82,7 @@ boolean state = DateTimeFormat.isAterDate("12-04-2019","12-04-2019","dd-MM-yyyy"
 
 ```isBefore``` Tell whether or not a given date is before current date
 
-```
+```java
 // Date object as source
 boolean state = DateTimeFormat.isBeforeDate(new Date());
 boolean state = DateTimeFormat.isBeforeDate(new Date(),new Date());
@@ -90,7 +94,7 @@ boolean state = DateTimeFormat.isBeforeDate("12-04-2019","12-04-2019","dd-MM-yyy
 ```
 
 **Change Date Pattern**
-```
+```java
 // Date object as source
 String outputDate = DateTimeFormat.changeDatePattern(new Date(),String pattern);
 String outputDate = DateTimeFormat.changeDatePattern(new Date(),"dd-MM-yyyy"); // outputDate = "12-04-2019"
@@ -103,6 +107,20 @@ String outputDate = DateTimeFormat.changeDatePattern(String date,String inputDat
 String outputDate = DateTimeFormat.changeDatePattern("10-04-2019","dd-MM-yyyy","yyyy-MM-dd");// outputDate = "2019-04-10"
 String outputDate = DateTimeFormat.changeDatePattern("10-04-2019","dd-MM-yyyy","yyyy/MM/dd");// outputDate = "2019/04/10"
 String outputDate = DateTimeFormat.changeDatePattern("10-04-2019","dd-MM-yyyy","MMM-yyyy");// outputDate = "April-2019"
+```
+
+
+## 2. Integer to Currency Convert for any Country
+**Convert Integer to Currency**
+```java
+// Amount double as source 
+String currency = CurrencyUnit.currencyConvert(double amount,Local country);
+String currency = CurrencyUnit.currencyConvert(15000,Local.US); //currency = $ 15,000
+String currency = CurrencyUnit.currencyConvert(15000,Local.US); //currency = $ 15,000
+
+// 
+String currency = CurrencyUnit.currencyConvert(25480); //currency = ₹25,480
+
 ```
 
 
