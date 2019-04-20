@@ -1,7 +1,7 @@
 # Formater-Library
 
 
-The DateTimeFormat library is available from JitPack.
+The DateTimeFormat library is available from [JitPack](https://jitpack.io/#ravi84184/Formater-Library/0.0.1).
 
 Step 1. **Add it in your root build.gradle at the end of repositories:**
 ```java
