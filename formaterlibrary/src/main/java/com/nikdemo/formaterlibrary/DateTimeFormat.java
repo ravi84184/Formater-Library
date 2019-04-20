@@ -171,12 +171,20 @@ public class DateTimeFormat {
 
     @SuppressLint("SimpleDateFormat")
     public static boolean isTodayDate(String date1,String inputDatePattern){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return isTodayDate(date1,getCurrentDate(inputDatePattern),inputDatePattern);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static boolean isTodayDate(String date1,String date2,String inputDatePattern){
+        if (inputDatePattern.equals("")){
+            throw new IllegalArgumentException("Input Pattern is empty");
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(inputDatePattern);
         Date date11 = null;
-        Date date22 = getCurrentDate();
+        Date date22 = null;
         try {
             date11 = sdf.parse(date1);
-            date22 = sdf.parse(getCurrentDate(inputDatePattern));
+            date22 = sdf.parse(date2);
             if (date11.compareTo(date22) == 0) {
                 return true;
             } else {
@@ -186,17 +194,29 @@ public class DateTimeFormat {
             e.printStackTrace();
             throw new IllegalArgumentException(e);
         }
-
+    }
+    @SuppressLint("SimpleDateFormat")
+    public static boolean isTodayDate(Date date){
+        String pattern = "yyyy-MM-dd";
+        return isTodayDate(changeDatePattern(date,pattern),getCurrentDate(pattern),pattern);
     }
 
     @SuppressLint("SimpleDateFormat")
     public static boolean isAterDate(String date1,String inputDatePattern){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return isAterDate(date1,getCurrentDate(inputDatePattern),inputDatePattern);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static boolean isAterDate(String date1,String date2,String inputDatePattern){
+        if (inputDatePattern.equals("")){
+            throw new IllegalArgumentException("Input Pattern is empty");
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(inputDatePattern);
         Date date11 = null;
         Date date22 = getCurrentDate();
         try {
             date11 = sdf.parse(date1);
-            date22 = sdf.parse(getCurrentDate(inputDatePattern));
+            date22 = sdf.parse(date2);
             if (date11.compareTo(date22) > 0) {
                 return true;
             } else {
@@ -206,18 +226,41 @@ public class DateTimeFormat {
             e.printStackTrace();
             throw new IllegalArgumentException(e);
         }
-
-
     }
 
     @SuppressLint("SimpleDateFormat")
+    public static boolean isAterDate(Date date){
+        String pattern = "yyyy-MM-dd";
+        return isAterDate(changeDatePattern(date,pattern),getCurrentDate(pattern),pattern);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static boolean isAterDate(Date date1,Date date2){
+        String pattern = "yyyy-MM-dd";
+        return isAterDate(changeDatePattern(date1,pattern),changeDatePattern(date2,pattern),pattern);
+    }
+    @SuppressLint("SimpleDateFormat")
     public static boolean isBeforeDate(String date1,String inputDatePattern){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return isBeforeDate(date1,getCurrentDate(inputDatePattern),inputDatePattern);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static boolean isBeforeDate(Date date){
+        String inputDatePattern = "yyyy-MM-dd";
+        return isBeforeDate(changeDatePattern(date,inputDatePattern),getCurrentDate(inputDatePattern),inputDatePattern);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static boolean isBeforeDate(String date1,String date2,String inputDatePattern){
+        if (inputDatePattern.equals("")){
+            throw new IllegalArgumentException("Input Pattern is empty");
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(inputDatePattern);
         Date date11 = null;
         Date date22 = getCurrentDate();
         try {
             date11 = sdf.parse(date1);
-            date22 = sdf.parse(getCurrentDate(inputDatePattern));
+            date22 = sdf.parse(date2);
             if (date11.compareTo(date22) < 0) {
                 return true;
             } else {
@@ -274,6 +317,10 @@ public class DateTimeFormat {
         return returnDate;
     }
 
+    @SuppressLint("SimpleDateFormat")
+    public static String changeTimePattern(Date time, String outputDatePattern){
+        return new SimpleDateFormat(outputDatePattern).format(time);
+    }
 
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentTimeInHHMM(){
